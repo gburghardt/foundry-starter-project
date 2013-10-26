@@ -1,0 +1,17 @@
+{
+	"name": "foundry.bootstrap",
+	"description": "User Foundry.Bootstrap to quickly get you started building an application with Foundry.",
+	"version": "0.0.1",
+	"homepage": "https://github.com/gburghardt/foundry.bootstrap",
+	"authors": [
+		"Greg Burghardt <greg_burghardt@yahoo.com>"
+	],
+	"license": "MIT",
+	"private": true,
+	"repository": { "type": "git", "url": "https://github.com/gburghardt/foundry.bootstrap.git" },
+	"main": [
+	],
+	"dependencies": {
+		"foundry": "0.0.1"
+	}
+}
