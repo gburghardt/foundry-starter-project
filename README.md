@@ -1,6 +1,6 @@
 # Foundry Bootstrap
 
-User Foundry.Bootstrap to quickly get you started building an
+Use Foundry.Bootstrap to quickly get you started building an
 application with Foundry.
 
 This serves as a starting point that works right out of the box.
