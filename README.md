@@ -9,15 +9,20 @@ This serves as a starting point that works right out of the box.
 
 1. Install [NodeJS](http://nodejs.org/).
 2. Install the [Bower JavaScript package manager](http://bower.io/).
-3. Clone or [download the zip file](https://github.com/gburghardt/foundry.bootstrap/archive/master.zip) for this repository.
-4. Install the base dependencies from the command line:
-<pre><code>cd src
-bower install</code></pre>
-5. Open one of the bootstrap examples in your browser.
+3. Install [Grunt](http://gruntjs.com/)
+4. Clone or [download the zip file](https://github.com/gburghardt/foundry.bootstrap/archive/master.zip) for this repository.
+5. Install the base dependencies from the command line:
+
+        cd path/to/this/repository
+        bower install
+
+6. Build the JavaScript package
+
+        grunt
 
 If you already have NodeJS and Bower installed:
 
-	bower install foundry.bootstrap
+    bower install foundry.bootstrap
 
 ## Getting Help
 
