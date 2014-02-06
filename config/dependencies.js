@@ -34,7 +34,7 @@ var DependencyConfig = {
 		className: "ElementStore"
 	},
 	globalEventDispatcher: {
-		className: "Events.Dispatcher",
+		className: "Beacon.Dispatcher",
 		singleton: true
 	},
 	module: {
