@@ -1,7 +1,7 @@
 {
 	"name": "foundry.bootstrap",
 	"description": "User Foundry.Bootstrap to quickly get you started building an application with Foundry.",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"homepage": "https://github.com/gburghardt/foundry.bootstrap",
 	"authors": [
 		"Greg Burghardt <greg_burghardt@yahoo.com>"
@@ -11,6 +11,6 @@
 	"main": [
 	],
 	"dependencies": {
-		"foundry": "0.0.5"
+		"foundry": "0.0.6"
 	}
 }

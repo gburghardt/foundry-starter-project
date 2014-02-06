@@ -46,18 +46,18 @@ var DependencyConfig = {
 			options: { id: "moduleOptions" }
 		}
 	},
-	moduleFactory: {
-		className: "Module.Factory",
+	moduleProvider: {
+		className: "Module.Provider",
 		singleton: true,
 		properties: {
-			objectFactory: { id: "objectFactory" }
+			factory: { id: "objectFactory" }
 		}
 	},
 	moduleManager: {
 		className: "Module.Manager",
 		singleton: true,
 		properties: {
-			factory: { id: "moduleFactory" }
+			provider: { id: "moduleProvider" }
 		}
 	},
 	moduleOptions: {
