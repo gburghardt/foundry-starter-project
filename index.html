@@ -7,13 +7,49 @@
 	</head>
 	<body>
 		<div data-modules="welcome"></div>
+		<div data-modules="welcome" data-module-options='{"backgroundColor": "#f0c090"}'></div>
 
-		<!-- Base Framework -->
-		<script type="text/javascript" src="./vendor/foundry/dist/foundry.min.js"></script>
+		<div id="views" style="display: none;">
+			<!-- Static and dynamic views go here -->
+		</div>
 
-		<!-- Your Application Files -->
-		<script type="text/javascript" src="./app/modules/welcome_module.js"></script>
-		<script type="text/javascript" src="./config/dependencies.js"></script>
-		<script type="text/javascript" src="./config/init.js"></script>
+		<script type="text/javascript" src="./dist/foundry.bootstrap-framework.min.js"></script>
+		<script type="text/javascript" src="./dist/foundry.bootstrap-application.min.js"></script>
+		<script type="text/javascript">
+			var app = Foundry.run(function(dependencies, options) {
+				dependencies.merge({
+					viewProvider: {
+						type: "Bloodhound.ViewProviders.MustacheViewProvider",
+						singleton: true
+					},
+					viewResolver: {
+						type: "Bloodhound.ViewResolvers.DynamicViewResolver",
+						singleton: true,
+						properties: {
+							container: { value: "views" },
+							provider: "viewProvider",
+							templateUrlBase: { value: "./app/views" }
+						}
+					},
+					renderingEngine: {
+						type: "Bloodhound.RenderingEngines.DynamicRenderingEngine",
+						singleton: true,
+						properties: {
+							viewResolver: "viewResolver"
+						}
+					},
+
+					// Your modules go here
+					welcome: {
+						type: "WelcomeModule",
+						parent: "module"
+					}
+				});
+
+				dependencies.module.properties.renderingEngine = "renderingEngine";
+
+				options.lazyLoadModules = true;
+			});
+		</script>
 	</body>
 </html>

@@ -1,0 +1,17 @@
+{
+	"framework": [
+		"vendor/mustache/mustache.js",
+		"vendor/yepnope/yepnope.js",
+		"vendor/foundry/dist/foundry.concat.js",
+		"vendor/foundry/dist/foundry_pollyfill_yepnope.concat.js",
+		"vendor/module-base/src/module/base.js",
+		"vendor/module-utils/dist/module-utils.concat.js",
+		"vendor/bloodhound/dist/bloodhound-base.concat.js",
+		"vendor/bloodhound/dist/bloodhound-dynamic.concat.js",
+		"vendor/bloodhound/dist/bloodhound-providers-mustache.concat.js"
+	],
+	"application": [
+		"app/models/welcome.js",
+		"app/modules/welcome_module.js"
+	]
+}
