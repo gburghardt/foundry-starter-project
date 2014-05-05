@@ -11,14 +11,19 @@ This serves as a starting point that works right out of the box.
 2. Install the [Bower JavaScript package manager](http://bower.io/).
 3. Install [Grunt](http://gruntjs.com/)
 4. Clone or [download the zip file](https://github.com/gburghardt/foundry.bootstrap/archive/master.zip) for this repository.
-5. Install the base dependencies from the command line:
+5. Rename `.bowerrc_example` to `.bowerrc`
+6. Install the base dependencies from the command line:
 
         cd path/to/this/repository
+        npm install
         bower install
 
-6. Build the JavaScript package
+7. Build the JavaScript packages
 
         grunt
+
+8. Configure a web server with this as the root public directory
+9. Open a Web browser and point it to the site you just created
 
 If you already have NodeJS and Bower installed:
 
