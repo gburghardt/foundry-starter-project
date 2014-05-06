@@ -1,4 +1,4 @@
-/*! foundry.bootstrap 2014-05-05 */
+/*! foundry 2014-05-14 */
 function Welcome(attrs) {
 	this.title = attrs.title || "";
 	this.body = attrs.body || "";
@@ -29,6 +29,20 @@ WelcomeModule = Module.Base.extend({
 
 			this.element.style.backgroundColor = this.options.backgroundColor;
 			this.render("welcome/index", model, this.element);
+		}
+	}
+});
+
+var HelloWorldModule = Module.Base.extend({
+	prototype: {
+		options: {
+			backgroundColor: "#f0f0f0"
+		},
+
+		_ready: function() {
+			Module.Base.prototype._ready.call(this);
+			this.element.innerHTML = '<h1>Hello, World!</h1>';
+			this.element.style.backgroundColor = this.options.backgroundColor;
 		}
 	}
 });

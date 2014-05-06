@@ -1,9 +1,7 @@
 # Foundry Bootstrap
 
-Use Foundry.Bootstrap to quickly get you started building an
-application with Foundry.
-
-This serves as a starting point that works right out of the box.
+Use Foundry.Bootstrap to quickly get you started building an application with
+Foundry. This serves as a starting point that works right out of the box.
 
 ## Getting Started
 
@@ -25,10 +23,16 @@ This serves as a starting point that works right out of the box.
 8. Configure a web server with this as the root public directory
 9. Open a Web browser and point it to the site you just created
 
+7. Create a Virtual Directory/Virtual Host in the web server on your machine,
+   pointing it to this directory.
+
+8. View this index.html file in a Web browser.
+
 If you already have NodeJS and Bower installed:
 
     bower install foundry.bootstrap
 
 ## Getting Help
 
-The [Foundry Wiki](https://github.com/gburghardt/foundry/wiki) is a great place to start.
+The official [Foundry Documentation][https://gburghardt.github.io/foundry/] is
+a great place to start.

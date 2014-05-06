@@ -1,21 +1,27 @@
 {
-	"name": "foundry.bootstrap",
-	"description": "User Foundry.Bootstrap to quickly get you started building an application with Foundry.",
-	"version": "0.1.2",
-	"homepage": "https://github.com/gburghardt/foundry.bootstrap",
-	"authors": [
-		"Greg Burghardt <greg_burghardt@yahoo.com>"
-	],
-	"license": "MIT",
-	"repository": { "type": "git", "url": "https://github.com/gburghardt/foundry.bootstrap.git" },
-	"main": [
-	],
-	"dependencies": {
-		"yepnope": "~1.5.4",
-		"foundry": "~0.1.2",
-		"module-base": "~1.0.1",
-		"module-utils": "~1.0.2",
-		"bloodhound": "~1.0.1",
-		"mustache": "~0.8.1"
-	}
+  "name": "foundry-starter-project",
+  "description": "Use the Foundry Starter Project to quickly get you started building an application with Foundry.",
+  "version": "0.2.0",
+  "homepage": "https://github.com/gburghardt/foundry-starter-project",
+  "authors": [
+    "Greg Burghardt <greg_burghardt@yahoo.com>"
+  ],
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/gburghardt/foundry-starter-project.git" },
+  "main": [],
+  "dependencies": {
+    "yepnope":                 "~1.5.4",
+    "foundry":                 "~0.2.0",
+    "bloodhound":              "~1.0.2",
+    "mustache":                "~0.8.1",
+    "module-auto_completer":   "~1.0.4",
+    "module-auto_fill_select": "~1.0.2",
+    "module-details":          "~1.0.2",
+    "module-form":             "~1.0.2",
+    "module-infinite_scroll":  "~1.0.2",
+    "module-input_mask":       "~1.0.0",
+    "module-selection":        "~1.0.2",
+    "module-slideshow":        "~1.0.2",
+    "module-tabs":             "~1.0.2"
+  }
 }

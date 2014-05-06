@@ -1,4 +1,4 @@
-/*! foundry.bootstrap 2014-05-05 */
+/*! foundry 2014-05-14 */
 /*!
  * mustache.js - Logic-less {{mustache}} templates with JavaScript
  * http://github.com/janl/mustache.js
@@ -1133,7 +1133,7 @@ var docElement            = doc.documentElement,
 
 })( this, document );
 
-/*! foundry 2014-05-05 */
+/*! foundry 2014-05-14 */
 var Oxydizr = {};
 Oxydizr.FrontController = function FrontController() {
 	this.events = {};
@@ -1446,7 +1446,21 @@ for (var i = 0, key, length = globals.length; i < length; i++) {
 	key = globals[i];
 
 	if (key in global) {
-		globalSingletons[key] = global[key];
+		try {
+			globalSingletons[key] = global[key];
+		}
+		catch (error) {
+			var message = "Cannot seed global singletons with " + key + ". Failed with error: " + error.message;
+
+			if (global.console && global.console.warn) {
+				global.console.warn(message);
+			}
+			else {
+				setTimeout(function() {
+					throw message;
+				}, 500);
+			}
+		}
 	}
 }
 
@@ -1785,10 +1799,18 @@ Module.FrontControllerModuleObserver.prototype = {
 
 	constructor: Module.FrontControllerModuleObserver,
 
-	onModuleCreated: function(module, element, type) {
+	_ensureControllerId: function(module) {
 		module.controllerId = module.controllerId
 		                   || module.options.controllerId
 		                   || module.guid;
+	},
+
+	onModuleCreated: function(module, element, type) {
+		this._ensureControllerId(module);
+	},
+
+	onSubModuleCreated: function(module, element, type) {
+		this.frontController.registerController(module);
 	},
 
 	onModuleRegistered: function(module, type) {
@@ -1820,16 +1842,16 @@ function LazyLoader() {
 	    	resizeTimeout: 250,
 	    	scrollTimeout: 250
 	    },
-	    _scrollElement =
-	    _scrollTimer =
-	    _manager =
-	    _element =
-	    _document =
-	    _window =
+	    _scrollElement = null,
+	    _scrollTimer = null,
+	    _manager = null,
+	    _element = null,
+	    _document = null,
+	    _window = null,
 	    _resizeTimer = null,
-	    _scrollLeft =
-	    _scrollTop =
-	    _viewportHeight =
+	    _scrollLeft = 0,
+	    _scrollTop = 0,
+	    _viewportHeight = 0,
 	    _viewportWidth = 0;
 
 	// Private Methods
@@ -2141,6 +2163,7 @@ Manager.prototype = {
 
 	moduleObserver: {
 		onModuleCreated: function(module, element, type) {},
+		onSubModuleCreated: function(module, element, type) {},
 		onModuleRegistered: function(module, type) {},
 		onModuleUnregistered: function(module) {}
 	},
@@ -2587,6 +2610,7 @@ Provider.prototype = {
 		}
 
 		subModule = this.createModule(element, metaData.types[0], metaData.options);
+		this.moduleObserver.onSubModuleCreated(subModule, element, metaData.types[0]);
 		subModule.init();
 
 		if (parentModule[name] === null) {
@@ -3171,7 +3195,7 @@ Foundry.NewModuleController.prototype = {
 	}
 
 };
-/*! foundry 2014-05-05 */
+/*! foundry 2014-05-14 */
 Foundry.pollyfill = function() {
 	return new Foundry.PollyfillPromise(Array.prototype.slice.call(arguments));
 };
@@ -3406,8 +3430,8 @@ Base.prototype = {
 global.Module.Base = Base;
 
 })(this);
-/*! module-utils 2014-05-05 */
-/*! module-utils 2014-05-05 */
+/*! module-utils 2014-05-14 */
+/*! module-utils 2014-05-14 */
 (function(global) {
 
 var toString = global.Object.prototype.toString;
@@ -3695,8 +3719,6 @@ Module.Utils.Bootstrap = {
 				this._loaded();
 			}
 
-			opts = null;
-
 			return this;
 		},
 
@@ -3827,7 +3849,7 @@ Module.Utils.Rendering = {
 
 Module.Utils.include(Module.Utils.Rendering);
 
-/*! module-utils 2014-05-05 */
+/*! module-utils 2014-05-14 */
 function ElementStore() {
 }
 ElementStore.prototype = {
@@ -4212,7 +4234,7 @@ Module.Utils.ElementStore = {
 
 Module.Utils.include(Module.Utils.ElementStore);
 
-/*! module-utils 2014-05-05 */
+/*! module-utils 2014-05-14 */
 (function() {
 
 	function include(Klass, mixin) {
@@ -4630,12 +4652,16 @@ Module.Utils.Events = {
 	included: function(Klass) {
 		Beacon.setup(Klass);
 		Klass.addCallback("beforeReady", "_initApplicationEvents");
+
+		if (Beacon.Notifications) {
+			Klass.addCallback("beforeReady", "_initNotifications");
+		}
 	}
 };
 
 Module.Utils.include(Module.Utils.Events);
 
-/*! bloodhound 2014-05-05 */
+/*! bloodhound 2014-05-14 */
 (function() {
 
 	function createCallback(Klass, name) {
@@ -4782,7 +4808,7 @@ window.Bloodhound = Bloodhound;
 
 })();
 
-/*! bloodhound 2014-05-05 */
+/*! bloodhound 2014-05-14 */
 (function() {
 
 function DynamicRenderingEngine(viewResolver) {
@@ -4990,7 +5016,7 @@ function DynamicViewResolver(container, provider) {
 
 		var complete = function complete() {
 			xhr.onreadystatechange = null;
-			xhr = callback = context = resolver = uri = null;
+			xhr = callback = context = uri = null;
 		};
 
 		xhr.onreadystatechange = readyStateChanged;
@@ -5138,7 +5164,7 @@ Bloodhound.ViewResolvers.DynamicViewResolver = DynamicViewResolver;
 
 })();
 
-/*! bloodhound 2014-05-05 */
+/*! bloodhound 2014-05-14 */
 (function() {
 
 function MustacheTemplate(name, source) {

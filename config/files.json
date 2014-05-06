@@ -10,6 +10,17 @@
 		"vendor/bloodhound/dist/bloodhound-dynamic.concat.js",
 		"vendor/bloodhound/dist/bloodhound-providers-mustache.concat.js"
 	],
+	"module_pack": [
+		"vendor/module-auto_completer/src/auto_completer_module.js",
+		"vendor/module-auto_fill_select/src/module/auto_fill_select_module.js",
+		"vendor/module-details/src/module/details_module.js",
+		"vendor/module-form/src/module/form_module.js",
+		"vendor/module-infinite_scroll/src/module/infinite_scroll_module.js",
+		"vendor/module-input_mask/src/module/input_mask_module.js",
+		"vendor/module-selection/src/module/selection_module.js",
+		"vendor/module-slideshow/src/module/slideshow_module.js",
+		"vendor/module-tabs/src/module/tabs_module.js"
+	],
 	"application": [
 		"app/models/welcome.js",
 		"app/modules/welcome_module.js"
