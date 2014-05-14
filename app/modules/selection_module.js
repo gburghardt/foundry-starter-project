@@ -1,4 +1,3 @@
-/*! foundry 2014-05-14 */
 var SelectionModule = Module.Base.extend({
     prototype: {
         options: {

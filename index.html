@@ -3,12 +3,59 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Foundry: The Beginning</title>
+		<title>Foundry: Introduction To Modules Tutorial</title>
 		<meta name="viewport" content="width=device-width">
+		<style type="text/css">
+
+			/* Styles applied to all modules */
+			.module {
+				border: 1px solid #000;
+				border-radius: 8px;
+				margin: 1em;
+				padding: 0 1em;
+			}
+
+			/* Styles only applied to Selection modules */
+			.module.selection ol {
+				list-style-position: inside;
+				margin: 1em 0;
+				padding: 0;
+			}
+			.module.selection li {
+				cursor: pointer;
+			}
+
+			/* Misc styles */
+			.selected {
+				background-color: #ffc;
+			}
+			.selected-item {
+				background-color: #8ECEFF;
+			}
+
+		</style>
 	</head>
 	<body>
-		<div data-modules="welcome"></div>
-		<div data-modules="welcome" data-module-options='{"backgroundColor": "#f0c090"}'></div>
+		<!-- HTML for instance #1 of SelectionModule -->
+		<div data-modules="SelectionModule" data-module-options='{"controllerId": "fruitSelection"}'>
+			<ol>
+				<li data-actions="fruitSelection.toggle">Apples</li>
+				<li data-actions="fruitSelection.toggle">Oranges</li>
+				<li data-actions="fruitSelection.toggle">Grapes</li>
+			</ol>
+		</div>
+
+		<!-- HTML for instance #2 of SelectionModule -->
+		<div data-modules="SelectionModule" data-module-options='{
+			"controllerId": "itemSelection",
+			"selectedClass": "selected-item"
+		}'>
+			<ol>
+				<li data-actions="itemSelection.toggle">Dinner Plate</li>
+				<li data-actions="itemSelection.toggle">Screwdriver</li>
+				<li data-actions="itemSelection.toggle">Airplane</li>
+			</ol>
+		</div>
 
 		<div id="views" style="display: none;">
 			<!-- Static and dynamic views go here -->
