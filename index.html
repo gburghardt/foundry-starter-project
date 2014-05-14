@@ -3,12 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Foundry: The Beginning</title>
+		<title>Foundry: Rendering Client Side Templates</title>
 		<meta name="viewport" content="width=device-width">
 	</head>
 	<body>
-		<div data-modules="welcome"></div>
-		<div data-modules="welcome" data-module-options='{"backgroundColor": "#f0c090"}'></div>
+		<div data-modules="postDetail" data-module-options='{"post_id": 1}'></div>
 
 		<div id="views" style="display: none;">
 			<!-- Static and dynamic views go here -->
@@ -42,8 +41,8 @@
 					},
 
 					// Your modules go here
-					welcome: {
-						type: "WelcomeModule",
+					postDetail: {
+						type: "PostDetailModule",
 						parent: "module"
 					}
 				});

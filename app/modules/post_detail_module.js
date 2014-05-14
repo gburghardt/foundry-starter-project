@@ -1,4 +1,3 @@
-/*! foundry 2014-05-14 */
 var PostDetailModule = Module.Base.extend({
 	prototype: {
 
