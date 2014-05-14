@@ -22,7 +22,8 @@
 		"vendor/module-tabs/src/module/tabs_module.js"
 	],
 	"application": [
-		"app/models/welcome.js",
-		"app/modules/welcome_module.js"
+		"app/modules/recent_tasks_module.js",
+		"app/modules/selection_module.js",
+		"app/modules/task_list_module.js"
 	]
 }
