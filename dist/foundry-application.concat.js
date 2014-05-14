@@ -1,48 +1,30 @@
 /*! foundry 2014-05-14 */
-function Welcome(attrs) {
-	this.title = attrs.title || "";
-	this.body = attrs.body || "";
-}
-
-Welcome.prototype = {
-	title: null,
-	body: null,
-
-	constructor: Welcome
-};
-WelcomeModule = Module.Base.extend({
+var ComplexModule = Module.Base.extend({
 	prototype: {
-		options: {
-			backgroundColor: "#f0f0f0"
-		},
-
-		_ready: function _ready() {
+		_ready: function() {
 			Module.Base.prototype._ready.call(this);
-
-			var model = new Welcome({
-				title: "Welcome to Foundry!",
-				body: [
-					'<p>To get you started, this example module was created in <code>app/modules/welcome_module.js</code>.</p>',
-					'<p>You can change the background color of this module by adding a <code>data-module-options</code> attribute to this module\'s root element.</p>'
-				].join("")
-			});
-
-			this.element.style.backgroundColor = this.options.backgroundColor;
-			this.render("welcome/index", model, this.element);
+			this.element.innerHTML = '<h1>I am WAAAAY too big for small screens</h1>';
+			this._loaded();
 		}
 	}
 });
 
-var HelloWorldModule = Module.Base.extend({
+var GoldilocksModule = Module.Base.extend({
 	prototype: {
-		options: {
-			backgroundColor: "#f0f0f0"
-		},
-
 		_ready: function() {
 			Module.Base.prototype._ready.call(this);
-			this.element.innerHTML = '<h1>Hello, World!</h1>';
-			this.element.style.backgroundColor = this.options.backgroundColor;
+			this.element.innerHTML = '<p>I work well on any screen size. Not too big. Not too small. Not too complex. Not too simple.</p>';
+			this._loaded();
+		}
+	}
+});
+
+var MiniModule = Module.Base.extend({
+	prototype: {
+		_ready: function() {
+			Module.Base.prototype._ready.call(this);
+			this.element.innerHTML = '<p>I\'m only usefull on small screens.</p>';
+			this._loaded();
 		}
 	}
 });

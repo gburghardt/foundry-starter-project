@@ -22,7 +22,8 @@
 		"vendor/module-tabs/src/module/tabs_module.js"
 	],
 	"application": [
-		"app/models/welcome.js",
-		"app/modules/welcome_module.js"
+		"app/modules/complex_module.js",
+		"app/modules/goldilocks_module.js",
+		"app/modules/mini_module.js"
 	]
 }
