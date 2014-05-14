@@ -22,6 +22,7 @@
     "module-input_mask":       "~1.0.0",
     "module-selection":        "~1.0.2",
     "module-slideshow":        "~1.0.2",
-    "module-tabs":             "~1.0.2"
+    "module-tabs":             "~1.0.2",
+    "matchMedia":              "~0.2.0"
   }
 }
